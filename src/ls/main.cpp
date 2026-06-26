@@ -8,7 +8,7 @@
 
 namespace fs = std::filesystem;
 
-static constexpr std::string_view VERSION{"0.1.2"};
+static constexpr std::string_view VERSION{"0.1.3"};
 
 bool is_executable(const fs::directory_entry& entry) {
     std::error_code ec;
@@ -36,6 +36,8 @@ int main (int argc, char *argv[]) {
 		std::cout << "List information about the FILEs (the current directory by default).\n";
 		std::cout << "Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.\n\n";
 		std::cout << "Mandatory arguments to tong options are mandatory for short options too.\n\n";
+		std::cout << "  -a, --all";
+		std::cout << "          do not ingore entries starting with .";
 		std::cout << "      --zero\n";
 		std::cout << "          end each output line with NUL, not newline";
 		std::cout << "  -1\n";
@@ -81,7 +83,7 @@ int main (int argc, char *argv[]) {
 				filename += "*";
 			} 
 
-			std::cout << filename << '\0';
+			std::cout << filename << " ";
 		}
 		return 0;
 	}
