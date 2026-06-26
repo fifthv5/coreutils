@@ -8,7 +8,7 @@
 
 namespace fs = std::filesystem;
 
-static constexpr std::string_view VERSION{"0.1.1"};
+static constexpr std::string_view VERSION{"0.1.2"};
 
 bool is_executable(const fs::directory_entry& entry) {
     std::error_code ec;
@@ -69,9 +69,27 @@ int main (int argc, char *argv[]) {
 		return entry.path().filename().string();
 	});
 
-	if (arg1 == "--zero") {
+
+	if (arg1 == "-a" || arg1 == "--all") {
 		for (const auto& entry : entries) {
 			std::string filename = entry.path().filename().string();
+
+			if (entry.is_directory()) {
+				filename += "/";
+			}
+			else if (is_executable(entry)) {
+				filename += "*";
+			} 
+
+			std::cout << filename << '\0';
+		}
+		return 0;
+	}
+	if (arg1 == "--zero") {
+		for (const auto& entry : entries) {
+			std::string filename = entry.path().filename().string();						
+			if (filename.starts_with(".")) continue;
+
 			if (entry.is_directory()) {
 				filename += "/";
 			}
@@ -86,6 +104,7 @@ int main (int argc, char *argv[]) {
 	if (arg1 == "-1") {
 		for (const auto& entry : entries) {
 			std::string filename = entry.path().filename().string();
+			if (filename.starts_with(".")) continue;
 			if (entry.is_directory()) {
 				filename += "/";
 			}
@@ -100,6 +119,7 @@ int main (int argc, char *argv[]) {
 	
 	for (const auto& entry : entries) {
 		std::string filename = entry.path().filename().string();
+		if (filename.starts_with(".")) continue;
 		if (entry.is_directory()) {
 			filename += "/";
 		}
