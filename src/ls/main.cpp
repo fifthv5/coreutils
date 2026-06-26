@@ -35,8 +35,19 @@ int main (int argc, char *argv[]) {
 		std::cout << "Usage: ls [OPTION]... [FILE]...\n";
 		std::cout << "List information about the FILEs (the current directory by default).\n";
 		std::cout << "Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.\n\n";
-		std::cout << "Mandatory arguments to tong options are mandatory for short options too.\n";
+		std::cout << "Mandatory arguments to tong options are mandatory for short options too.\n\n";
+		std::cout << "      --zero\n";
+		std::cout << "          end each output line with NUL, not newline";
+		std::cout << "  -1\n";
+		std::cout << "          list one file per line\n";
+		std::cout << "       --help\n";
+		std::cout << "          display this help and exit\n";
+		std::cout << "       --version\n";
+		std::cout << "          output version information and exit";
+
+		
 		return 0;
+
 	}
 	if (arg1 == "--version" || arg1 == "-V") {
 		std::cout << VERSION << "\n";
