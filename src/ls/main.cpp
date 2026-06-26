@@ -108,10 +108,10 @@ int main (int argc, char *argv[]) {
 		std::cout << "List information about the FILEs (the current directory by default).\n";
 		std::cout << "Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.\n\n";
 		std::cout << "Mandatory arguments to tong options are mandatory for short options too.\n\n";
-		std::cout << "  -a, --all";
-		std::cout << "          do not ingore entries starting with .";
+		std::cout << "  -a, --all\n";
+		std::cout << "          do not ingore entries starting with .\n";
 		std::cout << "      --zero\n";
-		std::cout << "          end each output line with NUL, not newline";
+		std::cout << "          end each output line with NUL, not newline\n";
 		std::cout << "  -1\n";
 		std::cout << "          list one file per line\n";
 		std::cout << "       --help\n";
